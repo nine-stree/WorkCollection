@@ -1,0 +1,236 @@
+body { 
+    padding: 40px; 
+    font-family: "Source Han Sans CN", "Microsoft YaHei"; 
+    background-color: #ffffff;
+}
+
+/* 标题 */
+ .title img {
+            height: 80px; 
+            width: auto;
+            max-width: 100%;
+            border: none;
+            background-color: #ffffff;
+ }
+
+/* 导航栏 */
+.nav-container {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+nav { 
+    border: 1px solid #333; 
+    display: inline-block; 
+    background-color: #fff;
+}
+nav a { 
+    display: inline-block; 
+    padding: 12px 30px; 
+    border-right: 1px solid #333; 
+    text-decoration: none; 
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+nav a:last-child { border-right: none; }
+nav a:hover { background-color: #f0f0f0; }
+
+/* 作品预览区 */
+.preview-area { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 50px;
+    gap: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.arrow { 
+    font-size: 64px; 
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+.arrow:hover { color: #333; }
+.preview-box { 
+    width: 600px; 
+    height: 300px; 
+    border: 2px solid #333; 
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+}
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Tags */
+.tags { 
+    position: absolute; /* 定位 */
+    bottom: 15px; 
+    right: 15px; 
+    display: flex; /* 横向排列 */
+    gap: 8px;
+    z-index: 10; 
+}
+.tags span { 
+    border: 1px solid #333; 
+    padding: 5px 12px; 
+    background-color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+.tags span:hover {
+    background-color: #fff;
+}
+/* 轮播项显示控制 */
+.preview-img, .tags {
+    display: none; /* 默认隐藏所有图片和标签 */
+}
+.preview-img.active, .tags.active {
+    display: block; /* 只显示带有active类的项 */
+}
+
+/* 作品列表 */
+.works-container {
+    margin-bottom: 80px;
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.works-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+.works-list { 
+    display: grid; 
+    grid-template-columns: repeat(2, minmax(280px, 1fr));  
+    gap: 30px;
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto; 
+    width: 100%;
+}
+.work-item { 
+    width: 100%; 
+    aspect-ratio: 16/9; 
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; /* 为Tag定位标识 */
+}
+.work-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.work-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s; /* 悬停时图片轻微缩放 */
+}
+.work-item:hover .work-img {
+    transform: scale(1.05);
+}
+
+/* 作品列表中的标签样式 */
+.work-item .tags {
+    bottom: 10px;
+    right: 10px;
+    gap: 5px;
+}
+
+.work-item .tags span {
+    padding: 3px 8px; 
+    font-size: 12px; 
+}
+
+.work-item .tags {
+    display: flex;
+}
+/* 相关链接 */
+.links-section {
+    margin-top: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.links-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+.links-list {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+.links-list a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px dotted #666;
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+}
+.links-list a:hover {
+    color: #0066cc;
+    border-bottom: 1px solid #0066cc;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    body { padding: 20px; }
+    .title { font-size: 48px; }
+    .preview-box { width: 100%; height: auto; }
+    .works-list { grid-template-columns: 1fr; }
+    .nav-container { text-align: center; }
+}
+
+/* 图片预览框 */
+        .modal {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .modal-img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
