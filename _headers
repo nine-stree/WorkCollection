@@ -1,0 +1,8 @@
+/*
+  Content-Security-Policy: default-src 'self' https://static.cloudflareinsights.com;
+  script-src 'self' https://static.cloudflareinsights.com;
+  script-src-elem 'self' https://static.cloudflareinsights.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: https:;
+  font-src 'self';
+  connect-src 'self' https://static.cloudflareinsights.com;
