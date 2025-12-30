@@ -2,6 +2,10 @@ body {
     padding: 40px; 
     font-family: "Source Han Sans CN", "Microsoft YaHei"; 
     background-color: #ffffff;
+    
+    min-width: 1200px; /* 固定最小宽度，和电脑端设计稿一致 */
+    width: 100%;
+    overflow-x: auto; /* 移动端横向滚动，展示完整内容 */
 }
 
 /* 标题 */
